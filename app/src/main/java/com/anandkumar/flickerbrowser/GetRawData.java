@@ -25,6 +25,14 @@ public class GetRawData {
     private String mData;
     private DownloadStatus mDownloadStatus;
 
+    public void setmRawUrl(String mRawUrl) {
+        this.mRawUrl = mRawUrl;
+    }
+
+    public String getmRawUrl() {
+        return mRawUrl;
+    }
+
     public GetRawData(String mRawData) {
         this.mRawUrl = mRawData;
         mDownloadStatus = DownloadStatus.IDLE;
@@ -51,7 +59,7 @@ public class GetRawData {
         downloadRawData.execute(mRawUrl);
     }
 
-    private class DownloadRawData extends AsyncTask<String, Void, String> {
+    public class DownloadRawData extends AsyncTask<String, Void, String> {
 
         protected void onPostExecute(String webData) {
             mData=webData;
