@@ -15,14 +15,9 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-       /* FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
+       GetRawData theRawData=new GetRawData("https://api.flickr.com/services/feeds/photos_public.gne?tags=android,lollypop&format=json&nojsoncallback=1");
+        theRawData.execute();
+
     }
 
     @Override

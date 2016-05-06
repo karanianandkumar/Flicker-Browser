@@ -45,10 +45,26 @@ public class GetRawData {
         return mDownloadStatus;
     }
 
+    public void execute(){
+        mDownloadStatus=DownloadStatus.PROCESSING;
+        DownloadRawData downloadRawData=new DownloadRawData();
+        downloadRawData.execute(mRawUrl);
+    }
+
     private class DownloadRawData extends AsyncTask<String, Void, String> {
 
         protected void onPostExecute(String webData) {
-            //TODO: Do it later
+            mData=webData;
+            Log.v(LOG_TAG,"Data returned was : "+mData);
+            if(mData==null){
+                if(mRawUrl==null){
+                    mDownloadStatus=DownloadStatus.NOT_INITIALIZED;
+                }else {
+                    mDownloadStatus=DownloadStatus.FAILED_OR_EMPTY;
+                }
+            }else {
+                mDownloadStatus=DownloadStatus.OK;
+            }
         }
 
         protected String doInBackground(String... parms) {
