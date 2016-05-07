@@ -2,12 +2,20 @@ package com.anandkumar.flickerbrowser;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
+    private final String LOG_TAG="MainActivity";
+    private List<Photo> mPhotoList=new ArrayList<Photo>();
+    private RecyclerView mRecyclerView;
+    private FlickerRecyclerViewAdapter flickerRecyclerViewAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,5 +48,26 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public class ProcessPhotos extends GetFlickerJsonData{
+
+        public ProcessPhotos(String searchCriteria,boolean matchAll){
+            super(searchCriteria,matchAll);
+        }
+        public void execute(){
+            super.execute();
+            ProcessData processData=new ProcessData();
+            processData.execute();
+        }
+
+        public class ProcessData extends DownloadJsonData{
+
+            protected void onPostExecute(String webData){
+                super.onPostExecute(webData);
+                flickerRecyclerViewAdapter=new FlickerRecyclerViewAdapter(MainActivity.this,getmPhotos());
+                mRecyclerView.setAdapter(flickerRecyclerViewAdapter);
+            }
+        }
     }
 }
