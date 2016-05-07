@@ -2,6 +2,7 @@ package com.anandkumar.flickerbrowser;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -23,9 +24,11 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        GetFlickerJsonData jsonData=new GetFlickerJsonData("android,lollypop",true);
-        jsonData.execute();
+        mRecyclerView=(RecyclerView)findViewById(R.id.recyclerView);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        ProcessPhotos processPhotos=new ProcessPhotos("android,lollypop",true);
+        processPhotos.execute();
     }
 
     @Override

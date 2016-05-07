@@ -108,7 +108,7 @@ public class GetFlickerJsonData extends GetRawData {
 
         protected String doInBackground(String... parms) {
             String[] par={mDestinationUri.toString()};
-            return super.doInBackground(parms);
+            return super.doInBackground(par);
         }
     }
 

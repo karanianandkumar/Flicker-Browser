@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
 /**
@@ -31,6 +33,16 @@ public class FlickerRecyclerViewAdapter extends RecyclerView.Adapter<FlickerImag
     @Override
     public void onBindViewHolder(FlickerImageViewHolder holder, int position, List<Object> payloads) {
         super.onBindViewHolder(holder, position, payloads);
+    }
+
+    @Override
+    public void onBindViewHolder(FlickerImageViewHolder flickerImageViewHolder, int position) {
+        Photo photoObject=mPhotolist.get(position);
+        Picasso.with(context).load(photoObject.getmImage())
+                .error(R.drawable.placeholder)
+                .placeholder(R.drawable.placeholder)
+                .into(flickerImageViewHolder.thumbnail);
+        flickerImageViewHolder.title.setText(photoObject.getmTitle());
     }
 
     @Override
