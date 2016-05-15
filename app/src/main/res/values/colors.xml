@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="flickerPrimaryBackgroundColor">@color/md_blue_500</color>
+    <color name="flickerSecondaryBackgroundColor">@color/md_blue_700</color>
+    <color name="flickerColorBackgrondAccent">@color/md_pink_500</color>
+    <color name="flickerBackgroundColor">@color/md_grey_600</color>
+    <color name="flickerPrimaryTextColor">@color/md_white_1000</color>
+    <color name="flickerSecondaryTextColor">@color/md_yellow_500</color>
 </resources>
