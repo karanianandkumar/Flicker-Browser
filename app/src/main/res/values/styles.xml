@@ -19,7 +19,7 @@
     </style>
     <style name="ActionBarThemeOverlay" parent="">
         <item name="android:textColorPrimary">@color/flickerPrimaryTextColor</item>
-        <item name="android:textColorSecondary">@color/flickerSecondaryTextColor</item>
+        <item name="android:textColorSecondary">@color/flickerPrimaryTextColor</item>
         <item name="android:colorControlHighlight">@color/flickerBackgroundColor</item>
         <item name="android:actionMenuTextColor">@color/flickerPrimaryTextColor</item>
         <item name="android:background">@color/flickerPrimaryBackgroundColor</item>

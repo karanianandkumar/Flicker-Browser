@@ -4,6 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
     flicker:theme="@style/ActionBarThemeOverlay"
+    android:id="@+id/app_bar"
 
     flicker:titleTextAppearance="@style/ActionBar.TitleText"
     >

@@ -1,4 +1,6 @@
 <resources>
 
-    <style name="Theme.Flicker" parent="Theme.Base"/>
+    <style name="Theme.Flicker" parent="Theme.Base">
+        <item name="android:navigationBarColor">?colorPrimaryDark</item>
+    </style>
 </resources>
