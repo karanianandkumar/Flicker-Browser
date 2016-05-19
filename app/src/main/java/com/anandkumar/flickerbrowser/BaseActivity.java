@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 public class BaseActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
+    public static final String FLICKER_QUERY= "FLICKER_QUERY";
 
     protected Toolbar activateToolbar(){
         if(toolbar==null){
