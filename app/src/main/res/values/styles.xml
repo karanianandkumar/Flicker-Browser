@@ -17,6 +17,7 @@
     <style name="Theme.Flicker" parent="Theme.Base">
 
     </style>
+
     <style name="ActionBarThemeOverlay" parent="">
         <item name="android:textColorPrimary">@color/flickerPrimaryTextColor</item>
         <item name="android:textColorSecondary">@color/flickerPrimaryTextColor</item>
@@ -24,11 +25,15 @@
         <item name="android:actionMenuTextColor">@color/flickerPrimaryTextColor</item>
         <item name="android:background">@color/flickerPrimaryBackgroundColor</item>
     </style>
-    
+
     <style name="ActionBar.TitleText" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">@color/flickerPrimaryTextColor</item>
         <item name="android:textSize">18sp</item>
     </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
 
 </resources>

@@ -17,4 +17,11 @@ public class BaseActivity extends ActionBarActivity {
         }
         return toolbar;
     }
+    protected Toolbar activateToolbarWithHomeEnabled(){
+        activateToolbar();
+        if(toolbar!=null){
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        return toolbar;
+    }
 }
