@@ -28,8 +28,12 @@ public class MainActivity extends BaseActivity {
         mRecyclerView=(RecyclerView)findViewById(R.id.recyclerView);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        ProcessPhotos processPhotos=new ProcessPhotos("android,lollypop",true);
-        processPhotos.execute();
+
+        flickerRecyclerViewAdapter=new FlickerRecyclerViewAdapter(MainActivity.this,
+                new ArrayList<Photo>());
+        mRecyclerView.setAdapter(flickerRecyclerViewAdapter);
+
+
     }
 
     @Override
@@ -62,12 +66,13 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        if(flickerRecyclerViewAdapter!=null){
-            String query=getSavedPrefData(FLICKER_QUERY);
-            ProcessPhotos processPhotos=new ProcessPhotos(query,true);
-            processPhotos.execute();
 
+            String query=getSavedPrefData(FLICKER_QUERY);
+        if(query.length()>0) {
+            ProcessPhotos processPhotos = new ProcessPhotos(query, true);
+            processPhotos.execute();
         }
+
     }
 
     private String getSavedPrefData(String flickerQuery) {
@@ -90,8 +95,7 @@ public class MainActivity extends BaseActivity {
 
             protected void onPostExecute(String webData){
                 super.onPostExecute(webData);
-                flickerRecyclerViewAdapter=new FlickerRecyclerViewAdapter(MainActivity.this,getmPhotos());
-                mRecyclerView.setAdapter(flickerRecyclerViewAdapter);
+                flickerRecyclerViewAdapter.loadNewData(getmPhotos());
             }
         }
     }
