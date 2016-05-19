@@ -3,7 +3,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    android:padding="2dp">
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="10dp">
 
     <ImageView
         android:id="@+id/thumbanail"
@@ -20,5 +22,6 @@
         android:layout_marginLeft="8dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:textColor="@color/flickerSecondaryTextColor"
         android:maxLines="3"/>
 </LinearLayout>

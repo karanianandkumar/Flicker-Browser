@@ -1,6 +1,9 @@
 package com.anandkumar.flickerbrowser;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -47,8 +50,29 @@ public class MainActivity extends BaseActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if(id== R.id.menu_search){
+            Intent intent=new Intent(this,SearchActivity.class);
+            startActivity(intent);
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if(flickerRecyclerViewAdapter!=null){
+            String query=getSavedPrefData(FLICKER_QUERY);
+            ProcessPhotos processPhotos=new ProcessPhotos(query,true);
+            processPhotos.execute();
+
+        }
+    }
+
+    private String getSavedPrefData(String flickerQuery) {
+        SharedPreferences sharedPref= PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        return sharedPref.getString(flickerQuery,"");
     }
 
     public class ProcessPhotos extends GetFlickerJsonData{
