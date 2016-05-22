@@ -1,9 +1,13 @@
 package com.anandkumar.flickerbrowser;
 
+import java.io.Serializable;
+
 /**
  * Created by Anand on 5/6/2016.
  */
-public class Photo {
+public class Photo implements Serializable{
+    private static final long serialVersionUID=1L;
+
     private String mTitle;
     private String mAuthor;
     private String mAuthorId;

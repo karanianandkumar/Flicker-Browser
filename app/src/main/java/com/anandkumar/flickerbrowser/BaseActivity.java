@@ -10,6 +10,7 @@ public class BaseActivity extends ActionBarActivity {
 
     private Toolbar toolbar;
     public static final String FLICKER_QUERY= "FLICKER_QUERY";
+    public static final String PHOTO_TRANSFER="PHOTO_TRANSFER";
 
     protected Toolbar activateToolbar(){
         if(toolbar==null){
