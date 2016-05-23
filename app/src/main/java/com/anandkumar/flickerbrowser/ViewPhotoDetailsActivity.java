@@ -31,6 +31,7 @@ public class ViewPhotoDetailsActivity extends BaseActivity {
 
         ImageView photoImage=(ImageView)findViewById(R.id.photo_image);
 
+
         Picasso.with(this).load(photo.getmLink())
                 .error(R.drawable.placeholder)
                 .placeholder(R.drawable.placeholder)
