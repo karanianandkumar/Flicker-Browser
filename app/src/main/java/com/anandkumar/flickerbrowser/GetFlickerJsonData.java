@@ -79,12 +79,13 @@ public class GetFlickerJsonData extends GetRawData {
                 String title = jsonPhoto.getString(FLICKER_TITLE);
                 String author = jsonPhoto.getString(FLICKER_AUTHOR);
                 String author_id = jsonPhoto.getString(FLICKER_AUTHOR_ID);
-                String link = jsonPhoto.getString(FLICKER_LINK);
+                //String link = jsonPhoto.getString(FLICKER_LINK);
                 String tags = jsonPhoto.getString(FLICKER_TAGS);
 
                 JSONObject jsonMedia = jsonPhoto.getJSONObject(FLICKER_MEDIA);
                 String photoUrl = jsonMedia.getString(FLICKER_PHOTO_URL);
 
+                String link=photoUrl.replace("_m.","_b.");
                 Photo photoObject = new Photo(title, author, author_id, link, tags, photoUrl);
                 this.mPhotos.add(photoObject);
 
